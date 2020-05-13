@@ -175,7 +175,7 @@ MatrixXd computeTransformationMatrix(VectorXd theta)
     MatrixXd p2_6_unit_skew(3,3);
     p2_6_unit_skew << 0, -p2_6.normalized()(2), p2_6.normalized()(1),
                     p2_6.normalized()(2), 0, -p2_6.normalized()(0),
-                    -p2_6.normalized()(1), -p2_6.normalized()(0), 0;
+                    -p2_6.normalized()(1), p2_6.normalized()(0), 0;
 
     std::cout << "p2_6_unit_skew \n" << p2_6_unit_skew << '\n';
     R0_psi = I3.setIdentity() + sin(psi)*p2_6_unit_skew + (1-cos(psi))*(p2_6_unit_skew*p2_6_unit_skew) ;
